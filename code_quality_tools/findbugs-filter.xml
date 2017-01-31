@@ -1,0 +1,12 @@
+<FindBugsFilter>
+
+  <!-- Do not check auto-generated resources classes -->
+  <Match><Class name="~.*R\$.*"/></Match>
+
+  <!-- Do not check auto-generated manifest classes -->
+  <Match><Class name="~.*Manifest\$.*"/></Match>
+
+  <!-- We don't care about this one, we actually like null -->
+  <Match><Bug pattern="PZLA_PREFER_ZERO_LENGTH_ARRAYS"/></Match>
+
+</FindBugsFilter>
