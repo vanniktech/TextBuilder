@@ -1,0 +1,64 @@
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'com.vanniktech.code.quality.tools'
+apply plugin: 'com.vanniktech.android.junit.jacoco'
+
+buildscript {
+  repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://plugins.gradle.org/m2/' }
+  }
+
+  dependencies {
+    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.4.0'
+    classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.5.0'
+
+    classpath 'com.android.tools.build:gradle:2.2.3'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
+    classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.8'
+  }
+}
+
+codeQualityTools {
+  lint {
+    textReport = true
+  }
+}
+
+subprojects {
+  repositories {
+    jcenter()
+  }
+
+  group = GROUP
+  version = VERSION_NAME
+
+  plugins.apply('net.ltgt.errorprone')
+
+  configurations.errorprone {
+    resolutionStrategy.force 'com.google.errorprone:error_prone_core:2.0.15'
+  }
+}
+
+ext {
+  minSdkVersion = 15
+  compileSdkVersion = 25
+  targetSdkVersion = 25
+  buildToolsVersion = '25.0.2'
+
+  supportLibraryVersion = '25.1.1'
+
+  versionCode = VERSION_CODE
+  versionName = VERSION_NAME
+
+  supportAnnotations = "com.android.support:support-annotations:$supportLibraryVersion"
+  supportCompat = "com.android.support:support-compat:$supportLibraryVersion"
+  supportDesign = "com.android.support:design:$supportLibraryVersion"
+
+  javaVersion = JavaVersion.VERSION_1_7
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '3.3'
+  distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}

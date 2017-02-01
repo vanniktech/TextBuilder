@@ -1,0 +1,57 @@
+package com.vanniktech.textbuilder;
+
+import android.support.annotation.CheckResult;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import static android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
+import static com.vanniktech.textbuilder.Preconditions.checkNotNull;
+
+public final class FormableOptions {
+  @NonNull private final FormableText formableText;
+  @NonNull private final String textToFormat;
+
+  @Nullable private ClickableAction clickableAction;
+  private boolean isBold;
+  private boolean shouldUnderline;
+  @ColorInt @Nullable private Integer textColor;
+
+  FormableOptions(@NonNull final FormableText formableText, @NonNull final String textToFormat) {
+    this.formableText = formableText;
+    this.textToFormat = textToFormat;
+  }
+
+  @CheckResult public FormableOptions bold() {
+    isBold = true;
+    return this;
+  }
+
+  @CheckResult public FormableOptions underline() {
+    shouldUnderline = true;
+    return this;
+  }
+
+  @CheckResult public FormableOptions textColor(@ColorInt final int color) {
+    textColor = color;
+    return this;
+  }
+
+  @CheckResult public FormableOptions clickable(@NonNull final ClickableAction action) {
+    clickableAction = checkNotNull(action, "action == null");
+    return this;
+  }
+
+  @CheckResult public FormableText done() {
+    final int start = formableText.text.indexOf(textToFormat);
+
+    final CustomSpan customSpan = new CustomSpan(isBold, shouldUnderline, textColor, clickableAction);
+    formableText.spannableStringBuilder.setSpan(customSpan, start, start + textToFormat.length(), SPAN_EXCLUSIVE_EXCLUSIVE);
+
+    return formableText;
+  }
+
+  public interface ClickableAction {
+    void onClick();
+  }
+}
