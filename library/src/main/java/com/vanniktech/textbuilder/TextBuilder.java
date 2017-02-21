@@ -19,7 +19,7 @@ import java.util.List;
 
 import static android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
 import static android.text.Spanned.SPAN_INCLUSIVE_EXCLUSIVE;
-import static android.text.style.DynamicDrawableSpan.ALIGN_BOTTOM;
+import static android.text.style.DynamicDrawableSpan.ALIGN_BASELINE;
 import static com.vanniktech.textbuilder.Preconditions.checkNotNull;
 
 public final class TextBuilder {
@@ -61,11 +61,15 @@ public final class TextBuilder {
   }
 
   @CheckResult public TextBuilder addDrawable(@DrawableRes final int resDrawable) {
+    return addDrawable(resDrawable, ALIGN_BASELINE);
+  }
+
+  @CheckResult public TextBuilder addDrawable(@DrawableRes final int resDrawable, final int verticalAlignment) {
     final SpannableString spannableString = new SpannableString(" ");
     final Drawable drawable = ContextCompat.getDrawable(context, resDrawable);
     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
 
-    final ImageSpan imageSpan = new ImageSpan(drawable, ALIGN_BOTTOM);
+    final ImageSpan imageSpan = new ImageSpan(drawable, verticalAlignment);
     spannableString.setSpan(imageSpan, 0, 1, SPAN_INCLUSIVE_EXCLUSIVE);
     spannables.add(spannableString);
     return this;
