@@ -10,7 +10,7 @@ import com.vanniktech.textbuilder.FormableOptions;
 import com.vanniktech.textbuilder.TextBuilder;
 
 public class MainActivity extends AppCompatActivity {
-  private static final String TAG = "MainActivity";
+  static final String TAG = "MainActivity";
 
   @Override protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
