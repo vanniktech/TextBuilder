@@ -31,8 +31,12 @@ public final class TextBuilder {
     this.context = checkNotNull(context, "context == null");
   }
 
-  @CheckResult public TextBuilder addColoredTextRes(@NonNull final String text, @ColorRes final int color) {
-    return addColoredText(text, ContextCompat.getColor(context, color));
+  @CheckResult public TextBuilder addColoredTextRes(@NonNull final String text, @ColorRes final int colorRes) {
+    return addColoredText(text, ContextCompat.getColor(context, colorRes));
+  }
+
+  @CheckResult public TextBuilder addColoredTextRes(@StringRes final int textRes, @ColorRes final int colorRes) {
+    return addColoredText(context.getString(textRes), ContextCompat.getColor(context, colorRes));
   }
 
   @CheckResult public TextBuilder addColoredText(@NonNull final String text, @ColorInt final int color) {
@@ -40,6 +44,10 @@ public final class TextBuilder {
     word.setSpan(new ForegroundColorSpan(color), 0, word.length(), SPAN_EXCLUSIVE_EXCLUSIVE);
     spannables.add(word);
     return this;
+  }
+
+  @CheckResult public TextBuilder addColoredText(@StringRes final int textRes, @ColorInt final int color) {
+    return addColoredText(context.getString(textRes), color);
   }
 
   @CheckResult public TextBuilder addText(@StringRes final int stringRes) {
