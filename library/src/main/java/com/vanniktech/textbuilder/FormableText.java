@@ -23,6 +23,10 @@ public final class FormableText {
     return new FormableOptions(this, checkNotNull(textToFormat, "textToFormat == null"));
   }
 
+  @CheckResult public FormableOptions formatEntirely() {
+    return new FormableOptions(this, text);
+  }
+
   public void into(final TextView textView) {
     textBuilder.addSpannable(spannableStringBuilder).into(textView);
   }
