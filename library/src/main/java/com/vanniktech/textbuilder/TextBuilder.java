@@ -92,6 +92,10 @@ public final class TextBuilder {
     return new FormableText(this, checkNotNull(formableText, "formableText == null"));
   }
 
+  @CheckResult public FormableText addFormableText(@StringRes final int stringRes) {
+    return addFormableText(context.getString(stringRes));
+  }
+
   public void into(@NonNull final TextView textView) {
     checkNotNull(textView, "textView == null");
 
