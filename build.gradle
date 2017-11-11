@@ -11,10 +11,10 @@ buildscript {
 
   dependencies {
     classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.8.0'
-    classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.9.0'
+    classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.10.0'
 
-    classpath 'com.android.tools.build:gradle:2.3.3'
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
+    classpath 'com.android.tools.build:gradle:3.0.0'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
   }
 }
 
@@ -23,19 +23,19 @@ codeQualityTools {
     textReport = true
   }
   checkstyle {
-    toolVersion = '8.1'
+    toolVersion = '8.4'
   }
   pmd {
     toolVersion = '5.8.1'
   }
   ktlint {
-    toolVersion = '0.9.1'
+    toolVersion = '0.12.0'
   }
   detekt {
-    toolVersion = '1.0.0.RC2'
+    toolVersion = '1.0.0.RC5-3'
   }
   errorProne {
-    toolVersion = '2.0.21'
+    toolVersion = '2.1.2'
   }
 }
 
@@ -51,11 +51,10 @@ subprojects {
 
 ext {
   minSdkVersion = 15
-  compileSdkVersion = 26
-  targetSdkVersion = 26
-  buildToolsVersion = '26.0.1'
+  compileSdkVersion = 27
+  targetSdkVersion = 27
 
-  supportLibraryVersion = '26.0.1'
+  supportLibraryVersion = '27.0.1'
 
   versionCode = VERSION_CODE
   versionName = VERSION_NAME
@@ -68,6 +67,6 @@ ext {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '4.1'
+  gradleVersion = '4.3'
   distributionType = Wrapper.DistributionType.ALL
 }
