@@ -6,7 +6,6 @@ afterEvaluate {
 
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion as int
-  buildToolsVersion rootProject.ext.buildToolsVersion as String
 
   compileOptions {
     sourceCompatibility rootProject.ext.javaVersion as JavaVersion
@@ -19,8 +18,8 @@ android {
 }
 
 dependencies {
-  compile rootProject.ext.supportAnnotations
-  compile rootProject.ext.supportCompat
+  api rootProject.ext.supportAnnotations
+  implementation rootProject.ext.supportCompat
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

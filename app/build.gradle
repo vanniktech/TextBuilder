@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion as int
-  buildToolsVersion rootProject.ext.buildToolsVersion as String
 
   compileOptions {
     sourceCompatibility rootProject.ext.javaVersion as JavaVersion
@@ -49,7 +48,7 @@ android {
 }
 
 dependencies {
-  compile rootProject.ext.supportDesign
+  implementation rootProject.ext.supportDesign
 
-  compile project(':library')
+  implementation project(':library')
 }
