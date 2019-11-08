@@ -2,10 +2,10 @@ package com.vanniktech.textbuilder.sample;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 import com.vanniktech.textbuilder.FormableOptions;
 import com.vanniktech.textbuilder.TextBuilder;
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     setContentView(R.layout.activity_main);
 
-    final TextView textView1 = (TextView) findViewById(R.id.activityMainTextView1);
+    final TextView textView1 = findViewById(R.id.activityMainTextView1);
     new TextBuilder(this)
         .addText(R.string.some_text)
         .addWhiteSpace()
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         .addWhiteSpace()
         .into(textView1);
 
-    final TextView textView2 = (TextView) findViewById(R.id.activityMainTextView2);
+    final TextView textView2 = findViewById(R.id.activityMainTextView2);
     new TextBuilder(this)
         .addFormableText("Terms of use and privacy terms")
         .format("Terms of use")
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     textView2.setMovementMethod(LinkMovementMethod.getInstance());
 
-    final TextView textView3 = (TextView) findViewById(R.id.activityMainTextView3);
+    final TextView textView3 = findViewById(R.id.activityMainTextView3);
     new TextBuilder(this)
         .addDrawable(R.drawable.ic_done_black_18dp)
         .addWhiteSpace()

@@ -48,7 +48,7 @@ android {
 }
 
 dependencies {
-  implementation rootProject.ext.supportDesign
+  implementation deps.support.material
 
   implementation project(':library')
 }
