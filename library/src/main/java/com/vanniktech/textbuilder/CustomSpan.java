@@ -1,11 +1,11 @@
 package com.vanniktech.textbuilder;
 
 import android.graphics.Typeface;
-import android.support.annotation.ColorInt;
-import android.support.annotation.Nullable;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
 
 final class CustomSpan extends ClickableSpan {
   private final boolean isBold;
