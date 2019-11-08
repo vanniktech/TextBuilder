@@ -1,10 +1,10 @@
 package com.vanniktech.textbuilder.sample;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.vanniktech.textbuilder.FormableOptions;
 import com.vanniktech.textbuilder.TextBuilder;
@@ -31,18 +31,16 @@ public class MainActivity extends AppCompatActivity {
     new TextBuilder(this)
         .addFormableText("Terms of use and privacy terms")
         .format("Terms of use")
-          .textColor(Color.RED)
-          .bold()
-          .clickable(new LoggingAction("Clicked on Terms of Use"))
-        .done()
+            .textColor(Color.RED)
+            .bold()
+            .clickable(new LoggingAction(this, "Clicked on Terms of Use"))
+            .done()
         .format("privacy terms")
-          .underline()
-          .bold()
-          .clickable(new LoggingAction("Clicked on Privacy Terms"))
-        .done()
+            .underline()
+            .bold()
+            .clickable(new LoggingAction(this, "Clicked on Privacy Terms"))
+            .done()
         .into(textView2);
-
-    textView2.setMovementMethod(LinkMovementMethod.getInstance());
 
     final TextView textView3 = findViewById(R.id.activityMainTextView3);
     new TextBuilder(this)
@@ -55,14 +53,16 @@ public class MainActivity extends AppCompatActivity {
   }
 
   static class LoggingAction implements FormableOptions.ClickableAction {
+    final Context context;
     final String text;
 
-    LoggingAction(final String text) {
+    LoggingAction(final Context context, final String text) {
+      this.context = context;
       this.text = text;
     }
 
     @Override public void onClick() {
-      Log.d(TAG, text);
+      Toast.makeText(context, text, Toast.LENGTH_LONG).show();
     }
   }
 }

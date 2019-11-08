@@ -38,6 +38,7 @@ public final class FormableOptions {
   }
 
   @CheckResult public FormableOptions clickable(@NonNull final ClickableAction action) {
+    formableText.hasClickAction = true;
     clickableAction = checkNotNull(action, "action == null");
     return this;
   }
