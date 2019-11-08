@@ -1,6 +1,7 @@
 package com.vanniktech.textbuilder;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -98,6 +99,8 @@ public final class TextBuilder {
 
   public void into(@NonNull final TextView textView) {
     checkNotNull(textView, "textView == null");
+
+    textView.setHighlightColor(Color.TRANSPARENT);
 
     for (final Spannable spannable : spannables) {
       textView.append(spannable);
