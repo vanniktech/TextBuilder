@@ -102,7 +102,7 @@ public final class TextBuilder {
     into(textView, false);
   }
 
-  public void into(@NonNull final TextView textView, boolean hasClickAction) {
+  public void into(@NonNull final TextView textView, final boolean hasClickAction) {
     checkNotNull(textView, "textView == null");
 
     textView.setHighlightColor(Color.TRANSPARENT);
