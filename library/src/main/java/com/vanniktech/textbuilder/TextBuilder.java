@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.widget.TextView;
@@ -98,9 +99,17 @@ public final class TextBuilder {
   }
 
   public void into(@NonNull final TextView textView) {
+    into(textView, false);
+  }
+
+  public void into(@NonNull final TextView textView, final boolean hasClickAction) {
     checkNotNull(textView, "textView == null");
 
     textView.setHighlightColor(Color.TRANSPARENT);
+
+    if (hasClickAction) {
+      textView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
 
     for (final Spannable spannable : spannables) {
       textView.append(spannable);

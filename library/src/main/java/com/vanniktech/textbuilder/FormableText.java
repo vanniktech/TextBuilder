@@ -11,6 +11,7 @@ public final class FormableText {
   @NonNull final String text;
   @NonNull private final TextBuilder textBuilder;
   final SpannableStringBuilder spannableStringBuilder;
+  boolean hasClickAction;
 
   FormableText(@NonNull final TextBuilder textBuilder, @NonNull final String text) {
     this.text = text;
@@ -23,11 +24,11 @@ public final class FormableText {
     return new FormableOptions(this, checkNotNull(textToFormat, "textToFormat == null"));
   }
 
-  @CheckResult public FormableOptions formatEntirely() {
+  @CheckResult public FormableOptions formatEverything() {
     return new FormableOptions(this, text);
   }
 
   public void into(final TextView textView) {
-    textBuilder.addSpannable(spannableStringBuilder).into(textView);
+    textBuilder.addSpannable(spannableStringBuilder).into(textView, hasClickAction);
   }
 }
