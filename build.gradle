@@ -27,6 +27,9 @@ buildscript {
 }
 
 codeQualityTools {
+  cpd {
+    enabled = false
+  }
   lint {
     textReport = true
   }
