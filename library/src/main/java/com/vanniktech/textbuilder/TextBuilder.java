@@ -103,12 +103,28 @@ public final class TextBuilder {
   }
 
   public void into(@NonNull final TextView textView, final boolean hasClickAction) {
+    set(textView, hasClickAction, false);
+  }
+
+  public void appendInto(@NonNull final TextView textView) {
+    appendInto(textView, false);
+  }
+
+  public void appendInto(@NonNull final TextView textView, final boolean hasClickAction) {
+    set(textView, hasClickAction, true);
+  }
+
+  private void set(@NonNull final TextView textView, final boolean hasClickAction, final boolean append) {
     checkNotNull(textView, "textView == null");
 
     textView.setHighlightColor(Color.TRANSPARENT);
 
     if (hasClickAction) {
       textView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    if (!append) {
+      textView.setText(null);
     }
 
     for (final Spannable spannable : spannables) {
