@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
+  namespace "com.vanniktech.textbuilder.sample"
+
   compileSdkVersion rootProject.ext.compileSdkVersion as int
 
   compileOptions {
@@ -12,8 +14,8 @@ android {
     applicationId "com.vanniktech.textbuilder.sample"
     minSdkVersion rootProject.ext.minSdkVersion as int
     targetSdkVersion rootProject.ext.targetSdkVersion as int
-    versionCode rootProject.ext.versionCode as int
-    versionName rootProject.ext.versionName as String
+    versionCode 1
+    versionName VERSION_NAME
   }
 
   def shouldSign = project.hasProperty('RELEASE_STORE_FILE') &&
