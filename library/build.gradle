@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
+  namespace "com.vanniktech.textbuilder"
+
   compileSdkVersion rootProject.ext.compileSdkVersion as int
 
   compileOptions {
