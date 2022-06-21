@@ -1,4 +1,12 @@
+plugins {
+  id("app.cash.licensee")
+}
+
 apply plugin: 'com.android.library'
+
+licensee {
+  allow("Apache-2.0")
+}
 
 android {
   namespace "com.vanniktech.textbuilder"
