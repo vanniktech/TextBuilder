@@ -10,9 +10,7 @@ licensee {
 }
 
 dependencyGuard {
-  configuration("releaseRuntimeClasspath") {
-    tree = true
-  }
+  configuration("releaseRuntimeClasspath")
 }
 
 android {
