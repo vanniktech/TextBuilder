@@ -46,20 +46,15 @@ codeQualityTools {
 
 ext {
   minSdkVersion = 15
-  compileSdkVersion = 31
-  targetSdkVersion = 31
+  compileSdkVersion = 33
+  targetSdkVersion = 33
 
   versionName = VERSION_NAME
 
   supportAnnotations = "androidx.annotation:annotation:1.4.0"
-  supportAppCompat = "androidx.appcompat:appcompat:1.4.2"
+  supportAppCompat = "androidx.appcompat:appcompat:1.5.0"
 
   javaVersion = JavaVersion.VERSION_1_8
-}
-
-wrapper {
-  gradleVersion = '7.4.2'
-  distributionType = Wrapper.DistributionType.ALL
 }
 
 subprojects {
