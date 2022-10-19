@@ -3,7 +3,7 @@ apply plugin: 'com.vanniktech.code.quality.tools'
 buildscript {
   ext.deps = [
     'support': [
-      'material': "com.google.android.material:material:1.6.1",
+      'material': "com.google.android.material:material:1.7.0",
     ],
     'fastLaneScreenGrab': "tools.fastlane:screengrab:2.1.1",
   ]
