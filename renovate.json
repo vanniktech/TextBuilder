@@ -2,5 +2,13 @@
   "extends": [
     "config:base",
     ":disableDependencyDashboard"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^releaseRuntimeClasspath.txt$"],
+      "matchStrings": ["(?<packageName>.*?):(?<depName>.*?):(?<currentValue>.*?)\\n"],
+      "matchStringsStrategy": "recursive",
+      "datasourceTemplate": "gradle"
+    }
   ]
 }
