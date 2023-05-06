@@ -50,7 +50,7 @@ ext {
 
   versionName = VERSION_NAME
 
-  supportAnnotations = "androidx.annotation:annotation:1.5.0"
+  supportAnnotations = "androidx.annotation:annotation:1.6.0"
   supportAppCompat = "androidx.appcompat:appcompat:1.6.1"
 
   javaVersion = JavaVersion.VERSION_1_8
