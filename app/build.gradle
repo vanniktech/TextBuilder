@@ -1,21 +1,30 @@
-apply plugin: 'com.android.application'
+plugins {
+  id("com.android.application")
+  id("org.jetbrains.kotlin.android")
+}
+
+kotlin {
+  jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
+  }
+}
 
 android {
   namespace "com.vanniktech.textbuilder.sample"
 
-  compileSdkVersion rootProject.ext.compileSdkVersion as int
+  compileSdk libs.versions.compileSdk.get() as int
 
   compileOptions {
-    sourceCompatibility rootProject.ext.javaVersion as JavaVersion
-    targetCompatibility rootProject.ext.javaVersion as JavaVersion
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
   }
 
   defaultConfig {
     applicationId "com.vanniktech.textbuilder.sample"
-    minSdkVersion rootProject.ext.minSdkVersion as int
-    targetSdkVersion rootProject.ext.targetSdkVersion as int
+    minSdkVersion libs.versions.minSdk.get()
+    targetSdkVersion libs.versions.targetSdk.get()
     versionCode 1
-    versionName VERSION_NAME
+    versionName "0.1.0"
   }
 
   def shouldSign = project.hasProperty('RELEASE_STORE_FILE') &&
@@ -50,7 +59,7 @@ android {
 }
 
 dependencies {
-  implementation deps.support.material
+  implementation(libs.material)
 
-  implementation project(':library')
+  implementation(project(':library'))
 }

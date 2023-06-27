@@ -1,25 +1,21 @@
-apply plugin: 'com.vanniktech.code.quality.tools'
-
 buildscript {
-  ext.deps = [
-    'support': [
-      'material': "com.google.android.material:material:1.9.0",
-    ],
-    'fastLaneScreenGrab': "tools.fastlane:screengrab:2.1.1",
-  ]
-
   repositories {
     mavenCentral()
     google()
     gradlePluginPortal()
   }
-
   dependencies {
-    classpath 'com.vanniktech:gradle-code-quality-tools-plugin:0.22.0'
-    classpath 'com.vanniktech:gradle-maven-publish-plugin:0.25.2'
-    classpath 'com.android.tools.build:gradle:7.4.2'
-    classpath 'app.cash.licensee:licensee-gradle-plugin:1.7.0'
+    classpath(libs.plugin.android.cache.fix)
+    classpath(libs.plugin.androidgradleplugin)
+    classpath(libs.plugin.dokka)
+    classpath(libs.plugin.kotlin)
+    classpath(libs.plugin.licensee)
+    classpath(libs.plugin.publish)
   }
+}
+
+plugins {
+  alias(libs.plugins.codequalitytools)
 }
 
 codeQualityTools {
@@ -36,24 +32,11 @@ codeQualityTools {
     enabled = false
   }
   ktlint {
-    version = "0.45.2"
+    version = "0.49.1"
   }
   detekt {
     enabled = false
   }
-}
-
-ext {
-  minSdkVersion = 15
-  compileSdkVersion = 33
-  targetSdkVersion = 33
-
-  versionName = VERSION_NAME
-
-  supportAnnotations = "androidx.annotation:annotation:1.5.0"
-  supportAppCompat = "androidx.appcompat:appcompat:1.6.1"
-
-  javaVersion = JavaVersion.VERSION_1_8
 }
 
 subprojects {

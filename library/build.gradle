@@ -1,31 +1,40 @@
 plugins {
+  id("org.jetbrains.dokka")
   id("app.cash.licensee")
+  id("com.android.library")
+  id("org.jetbrains.kotlin.android")
+  id("com.vanniktech.maven.publish")
 }
 
 apply plugin: 'com.android.library'
+apply plugin: "com.vanniktech.maven.publish"
 
 licensee {
   allow("Apache-2.0")
 }
 
+kotlin {
+  jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
+  }
+}
+
 android {
   namespace "com.vanniktech.textbuilder"
 
-  compileSdkVersion rootProject.ext.compileSdkVersion as int
+  compileSdk libs.versions.compileSdk.get() as int
 
   compileOptions {
-    sourceCompatibility rootProject.ext.javaVersion as JavaVersion
-    targetCompatibility rootProject.ext.javaVersion as JavaVersion
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
   }
 
   defaultConfig {
-    minSdkVersion rootProject.ext.minSdkVersion as int
+    minSdkVersion libs.versions.minSdk.get()
   }
 }
 
 dependencies {
-  api rootProject.ext.supportAnnotations
-  implementation rootProject.ext.supportAppCompat
+  api libs.androidx.annotation
+  implementation libs.androidx.appcompat
 }
-
-apply plugin: "com.vanniktech.maven.publish"
