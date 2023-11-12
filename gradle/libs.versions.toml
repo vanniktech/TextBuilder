@@ -4,7 +4,7 @@ compileSdk = "33"
 targetSdk = "33"
 
 androidgradleplugin = "8.1.1"
-kotlin = "1.9.10"
+kotlin = "1.9.20"
 
 [libraries]
 androidx-annotation = { module = "androidx.annotation:annotation", version = "1.7.0" }
