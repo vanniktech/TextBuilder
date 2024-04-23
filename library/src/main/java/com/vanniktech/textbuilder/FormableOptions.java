@@ -14,6 +14,7 @@ public final class FormableOptions {
 
   @Nullable private ClickableAction clickableAction;
   private boolean isBold;
+  private boolean isItalic;
   private boolean shouldUnderline;
   @ColorInt @Nullable private Integer textColor;
 
@@ -24,6 +25,11 @@ public final class FormableOptions {
 
   @CheckResult public FormableOptions bold() {
     isBold = true;
+    return this;
+  }
+
+  @CheckResult public FormableOptions italic() {
+    isItalic = true;
     return this;
   }
 
@@ -46,7 +52,7 @@ public final class FormableOptions {
   @CheckResult public FormableText done() {
     final int start = formableText.text.indexOf(textToFormat);
 
-    final CustomSpan customSpan = new CustomSpan(isBold, shouldUnderline, textColor, clickableAction);
+    final CustomSpan customSpan = new CustomSpan(isBold, isItalic, shouldUnderline, textColor, clickableAction);
     formableText.spannableStringBuilder.setSpan(customSpan, start, start + textToFormat.length(), SPAN_EXCLUSIVE_EXCLUSIVE);
 
     return formableText;
