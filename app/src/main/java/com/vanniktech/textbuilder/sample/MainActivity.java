@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         .format("Terms of use")
             .textColor(Color.RED)
             .bold()
+            .italic()
             .clickable(new LoggingAction(this, "Clicked on Terms of Use"))
             .done()
         .format("privacy terms")
