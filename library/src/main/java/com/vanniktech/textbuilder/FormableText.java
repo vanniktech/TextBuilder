@@ -31,4 +31,8 @@ public final class FormableText {
   public void into(final TextView textView) {
     textBuilder.addSpannable(spannableStringBuilder).into(textView, hasClickAction);
   }
+
+  public void appendInto(final TextView textView) {
+    textBuilder.addSpannable(spannableStringBuilder).appendInto(textView, hasClickAction);
+  }
 }
