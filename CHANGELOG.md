@@ -1,7 +1,11 @@
 # Change Log
 
-Version 0.3.0 *(In development)*
---------------------------------
+Version 0.3.0 *(2024-04-24)*
+----------------------------
+
+- API: FormableOptions include italic\(\) next to underline\(\) and bold\(\). [\#159](https://github.com/vanniktech/TextBuilder/pull/159) ([vanniktech](https://github.com/vanniktech))
+- Behavior change: into\(\) replaces text. Use appendInto\(\) for old behavior. [\#49](https://github.com/vanniktech/TextBuilder/pull/49) ([vanniktech](https://github.com/vanniktech))
+- Technical: Target Android 34. [\#135](https://github.com/vanniktech/TextBuilder/pull/135) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.2.0 *(2020-03-27)*
 ----------------------------
