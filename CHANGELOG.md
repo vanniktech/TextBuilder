@@ -1,7 +1,9 @@
 # Change Log
 
-Version 0.4.0 *(In development)*
---------------------------------
+Version 0.4.0 *(2024-04-24)*
+----------------------------
+
+- API: Add FormableText#appendInto [\#160](https://github.com/vanniktech/TextBuilder/pull/160) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.3.0 *(2024-04-24)*
 ----------------------------

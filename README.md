@@ -52,7 +52,7 @@ For now only the basic things are supported and some features may be lacking. I'
 **build.gradle**
 
 ```groovy
-compile 'com.vanniktech:textbuilder:0.3.0'
+compile 'com.vanniktech:textbuilder:0.4.0'
 compile 'com.vanniktech:textbuilder:0.4.0-SNAPSHOT'
 ```
 
