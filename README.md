@@ -21,6 +21,7 @@ new TextBuilder(this) // Context
     .addFormableText("Terms of use and privacy terms")
     .format("Terms of use")
       .textColor(Color.RED)
+      .italic()
       .bold()
       .clickable(() -> Log.d(TAG, "Clicked on Terms of Use"))
     .done()
@@ -51,7 +52,7 @@ For now only the basic things are supported and some features may be lacking. I'
 **build.gradle**
 
 ```groovy
-compile 'com.vanniktech:textbuilder:0.2.0'
+compile 'com.vanniktech:textbuilder:0.3.0'
 compile 'com.vanniktech:textbuilder:0.3.0-SNAPSHOT'
 ```
 
