@@ -53,7 +53,7 @@ For now only the basic things are supported and some features may be lacking. I'
 
 ```groovy
 compile 'com.vanniktech:textbuilder:0.4.0'
-compile 'com.vanniktech:textbuilder:0.4.0-SNAPSHOT'
+compile 'com.vanniktech:textbuilder:0.5.0-SNAPSHOT'
 ```
 
 Modules are located on [Maven Central](https://oss.sonatype.org/#nexus-search;quick~textbuilder).
