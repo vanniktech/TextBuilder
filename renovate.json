@@ -3,12 +3,11 @@
     "config:base",
     ":disableDependencyDashboard"
   ],
-  "regexManagers": [
+  "packageRules": [
     {
-      "fileMatch": ["^releaseRuntimeClasspath.txt$"],
-      "matchStrings": ["(?<packageName>.*?):(?<depName>.*?):(?<currentValue>.*?)\\n"],
-      "matchStringsStrategy": "recursive",
-      "datasourceTemplate": "gradle"
+      "description": "Automerge updates",
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "automerge": true
     }
   ]
 }
