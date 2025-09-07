@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     final TextView textView1 = findViewById(R.id.activityMainTextView1);
     new TextBuilder(this)
-        .addText(R.string.some_text)
+        .addText(R.string.some_text, true)
         .addWhiteSpace()
         .addColoredTextRes("in green", R.color.green)
         .addWhiteSpace()

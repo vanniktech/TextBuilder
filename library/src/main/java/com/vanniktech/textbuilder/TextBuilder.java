@@ -2,12 +2,14 @@ package com.vanniktech.textbuilder;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.text.style.StyleSpan;
 import android.widget.TextView;
 import androidx.annotation.CheckResult;
 import androidx.annotation.ColorInt;
@@ -53,12 +55,32 @@ public final class TextBuilder {
   }
 
   @CheckResult public TextBuilder addText(@StringRes final int stringRes) {
-    spannables.add(new SpannableString(context.getString(stringRes)));
+    return addText(stringRes, false);
+  }
+
+  @CheckResult public TextBuilder addText(@StringRes final int stringRes, final boolean isBold) {
+    final Spannable word = new SpannableString(context.getString(stringRes));
+
+    if (isBold) {
+      word.setSpan(new StyleSpan(Typeface.BOLD), 0, word.length(), SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+
+    spannables.add(word);
     return this;
   }
 
   @CheckResult public TextBuilder addText(@NonNull final String text) {
-    spannables.add(new SpannableString(checkNotNull(text, "text == null")));
+    return addText(text, false);
+  }
+
+  @CheckResult public TextBuilder addText(@NonNull final String text, final boolean isBold) {
+    final SpannableString word = new SpannableString(checkNotNull(text, "text == null"));
+
+    if (isBold) {
+      word.setSpan(new StyleSpan(Typeface.BOLD), 0, word.length(), SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+
+    spannables.add(word);
     return this;
   }
 
