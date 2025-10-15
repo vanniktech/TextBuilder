@@ -2,6 +2,7 @@
 <lint>
   <issue id="SyntheticAccessor" severity="error"/>
   <!-- Our pace. -->
+  <issue id="OldTargetApi" severity="ignore" in="cli,gradle"/>
   <issue id="GradleDependency" severity="ignore" in="cli,gradle"/>
   <issue id="NewerVersionAvailable" severity="ignore" in="cli,gradle"/>
   <issue id="AndroidGradlePluginVersion" severity="ignore" in="cli,gradle"/>

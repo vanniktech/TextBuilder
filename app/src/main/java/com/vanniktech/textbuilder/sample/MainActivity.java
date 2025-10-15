@@ -19,11 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
     final TextView textView1 = findViewById(R.id.activityMainTextView1);
     new TextBuilder(this)
-        .addText(R.string.some_text, true)
+        .addText(R.string.some_text, true, true, true)
         .addWhiteSpace()
         .addColoredTextRes("in green", R.color.green)
         .addWhiteSpace()
-        .addColoredText("and blue", Color.BLUE)
+        .addText("and blue", true, false, false, Color.BLUE)
         .addWhiteSpace()
         .into(textView1);
 

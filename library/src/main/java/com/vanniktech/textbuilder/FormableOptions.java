@@ -58,7 +58,7 @@ public final class FormableOptions {
     return formableText;
   }
 
-  public interface ClickableAction {
+  @FunctionalInterface public interface ClickableAction {
     void onClick();
   }
 }

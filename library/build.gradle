@@ -2,7 +2,6 @@ plugins {
   id("org.jetbrains.dokka")
   id("app.cash.licensee")
   id("com.android.library")
-  id("org.jetbrains.kotlin.android")
   id("com.vanniktech.maven.publish")
 }
 
