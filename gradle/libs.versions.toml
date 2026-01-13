@@ -18,4 +18,4 @@ plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", versio
 plugin-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "2.1.0" }
 
 [plugins]
-codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.24.0" }
+codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.25.0" }
