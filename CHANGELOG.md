@@ -1,7 +1,12 @@
 # Change Log
 
-Version 0.5.0 *(In development)*
---------------------------------
+Version 0.5.0 *(2026-03-23)*
+----------------------------
+
+- Android: Target 35. [\#217](https://github.com/vanniktech/TextBuilder/pull/217) ([vanniktech](https://github.com/vanniktech))
+- API: Add boolean isBold parameter to TextBuilder#addText function. [\#230](https://github.com/vanniktech/TextBuilder/pull/230) ([vanniktech](https://github.com/vanniktech))
+- API: Bump minSdk to 21. [\#166](https://github.com/vanniktech/TextBuilder/pull/166) ([vanniktech](https://github.com/vanniktech))
+- API: TextBuilder#addText with overload for all possibilities. [\#252](https://github.com/vanniktech/TextBuilder/pull/252) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.4.0 *(2024-04-24)*
 ----------------------------
